@@ -12,7 +12,7 @@
 En este proyecto se desarrollarán las prácticas correspondientes al Módulo IV: Arquitectura en Redes IoT – Enrutamiento Sistemas de Localización (GNSS) – Proyecto Final de la Tecnicatura Superior en Telecomunicaciones del ISPC.
 
 ### Fecha de presentación: 26/06/23.
-## Cuestionario 
+## Tareas
 Implementar un Sistema Global de Navegación Satelital, usando el ESP32.
 1) Simular un GPS Tracker con ESP 32.(Wokwi; etc)
 
@@ -42,16 +42,11 @@ considerará)
 ## Estructura del repositorio
 El repositorio se estructura de la siguiente manera:
 - `README.md`: archivo que contiene la descripción del proyecto y la información sobre los integrantes del equipo.
-- `Proyecto 1`:
-  - `Hardware`: Carpeta que contiene archivos relacionados con el hardware del Proyecto 1.
-  - `Software`: Carpeta que contiene archivos relacionados con el software del Proyecto 1.
-  - `Presentación`: Carpeta que contiene archivos de presentación relacionados con el Proyecto 1.
-  - `Bibliografía`: Carpeta que contiene archivos de referencia y bibliografía relacionados con el Proyecto 1.
-- `Proyecto 2`:
-  - `Hardware`: Carpeta que contiene archivos relacionados con el hardware del Proyecto 2.
-  - `Software`: Carpeta que contiene archivos relacionados con el software del Proyecto 2.
-  - `Presentación`: Carpeta que contiene archivos de presentación relacionados con el Proyecto 2.
-  - `Bibliografía`: Carpeta que contiene archivos de referencia y bibliografía relacionados con el Proyecto 2.
+- Proyecto (Simulación): Contiene archivos relacionados con la simulación del proyecto, como configuraciones, archivos de simulación, resultados, etc.
+- Hardware (Dispositivos usados): Incluye información sobre los dispositivos hardware utilizados en el proyecto, como el ESP32, la pantalla OLED, el módulo de GPS, esquemas de conexión, datasheets, etc.
+- Software (código): Contiene todo el código fuente relacionado con el proyecto, ya sea en Python, C++ u otro lenguaje de programación elegido. Puede incluir subcarpetas para organizar el código en diferentes módulos o componentes.
+- Presentación (Video y *.ppt): Aquí se encuentran los archivos de presentación, como el video de demostración del proyecto y el archivo PowerPoint (o en formato *.ppt) utilizado para la presentación oral.
+- Bibliografía (Referencias): Contiene todos los recursos de referencia utilizados en el proyecto, como libros, artículos, enlaces a sitios web, documentos técnicos, etc.
 
 ## Referencias
     a) https://www.youtube.com/watch?v=ps1m6bWwvEM
