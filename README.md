@@ -24,14 +24,19 @@ de abajo)
 
 3) El lenguaje de programación es a su elección, Phyton, C++, etc.
 
-4) Organizar el repositorio para que sean legibles las carpetas que contengan,
-    el orden de las mismas a seguir es el siguiente:
+4) Organizar el repositorio para que sean legibles las carpetas que contengan, el orden de las mismas a seguir es el siguiente:
+   
     a) Proyecto (Simulación)
+   
     b) Hardware (Dispositivos usados)
+
     c) Software (código)
+
     d) Presentación (Video y *.ppt)
+
     e) Bibliografía (Referencias)
-5) Realizar Video y Pruebas de Campo, (Los receptores GNSS no funcionan
+   
+6) Realizar Video y Pruebas de Campo, (Los receptores GNSS no funcionan
 bajo techo)
 
 7) Realizar una presentación en *ppt del Proyecto (La nota final del Grupo se
