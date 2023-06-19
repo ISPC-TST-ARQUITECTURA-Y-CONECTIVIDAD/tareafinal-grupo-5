@@ -47,7 +47,7 @@ considerará)
 ## Estructura del repositorio
 El repositorio se estructura de la siguiente manera:
 - `README.md`: archivo que contiene la descripción del proyecto y la información sobre los integrantes del equipo.
-- Proyecto (Simulación): Contiene archivos relacionados con la simulación del proyecto, como configuraciones, archivos de simulación, resultados, etc.
+- 'Proyecto' (Simulación): Contiene archivos relacionados con la simulación del proyecto, como configuraciones, archivos de simulación, resultados, etc.
 - Hardware (Dispositivos usados): Incluye información sobre los dispositivos hardware utilizados en el proyecto, como el ESP32, la pantalla OLED, el módulo de GPS, esquemas de conexión, datasheets, etc.
 - Software (código): Contiene todo el código fuente relacionado con el proyecto, ya sea en Python, C++ u otro lenguaje de programación elegido. Puede incluir subcarpetas para organizar el código en diferentes módulos o componentes.
 - Presentación (Video y *.ppt): Aquí se encuentran los archivos de presentación, como el video de demostración del proyecto y el archivo PowerPoint (o en formato *.ppt) utilizado para la presentación oral.
