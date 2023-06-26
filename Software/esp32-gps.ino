@@ -5,32 +5,27 @@
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
 
-#define BLYNK_TEMPLATE_ID "TMPL2gC2aCZog"
-#define BLYNK_TEMPLATE_NAME "Quickstart Template"
-static const int RXPin = 16, TXPin = 17;   // GPIO 4=D2(conneect Tx of GPS) and GPIO 5=D1(Connect Rx of GPS
-static const uint32_t GPSBaud = 9600; //if Baud rate 9600 didn't work in your case then use 4800
+static const int RXPin = 4, TXPin = 5;   // GPIO 4=D2(conectar Tx del GPS) y GPIO 5=D1(conectar Rx del GPS)
+static const uint32_t GPSBaud = 9600; //si la velocidad de baudios de 9600 no funciona en tu caso, usa 4800
 
-TinyGPSPlus gps;      // The TinyGPS++ object
-WidgetMap myMap(V0);  // V0 for virtual pin of Map Widget
+TinyGPSPlus gps;      // El objeto TinyGPS++
+WidgetMap myMap(V0);  // V0 para el pin virtual del widget de mapa
 
-SoftwareSerial mygps(RXPin, TXPin);  // The serial connection to the GPS device
+SoftwareSerial mygps(RXPin, TXPin);  // Conexión serie al dispositivo GPS
 
 BlynkTimer timer;
 
-float latitude;     //Storing the Latitude
-float longitude;    //Storing the Longitude
-float velocity;     //Variable  to store the velocity
-float sats;         //Variable to store no. of satellites response
-String bearing;     //Variable to store orientation or direction of GPS
+float latitude;     // Almacena la latitud
+float longitude;    // Almacena la longitud
+float velocity;     // Variable para almacenar la velocidad
+float sats;         // Variable para almacenar el número de satélites
+String bearing;     // Variable para almacenar la orientación o dirección del GPS
 
+char auth[] = "********************";            // Token de autenticación de Blynk
+char ssid[] = "********************";            // SSID de la red WiFi
+char pass[] = "********************";            // Contraseña de la red WiFi
 
-char auth[] = "OTkDo4A_GomQ-VLiGhOHg8ndEWa6GkO0";            //Blynk Authentication Token
-char ssid[] = "Fibertel WiFi561 5.8GHz";            // WiFi SSID
-char pass[] = "0142545707";            // WiFi Password
-
-//unsigned int move_index;         // moving index, to be used later
-unsigned int move_index = 1;       // fixed location for now
-
+unsigned int move_index = 1;       // Ubicación fija por ahora
 
 void setup()
 {
@@ -38,15 +33,15 @@ void setup()
   Serial.println();
   mygps.begin(GPSBaud);
   Blynk.begin(auth, ssid, pass);
-  timer.setInterval(5000L, checkGPS); // every 5s check if GPS is connected, only really needs to be done once
+  timer.setInterval(5000L, checkGPS); // cada 5 segundos verifica si el GPS está conectado, solo es necesario hacerlo una vez
 }
 
 void checkGPS()
 {
   if (gps.charsProcessed() < 10)
   {
-    Serial.println(F("No GPS detected: check wiring."));
-    Blynk.virtualWrite(V3, "GPS ERROR");  // Value Display widget  on V3 if GPS not detected
+    Serial.println(F("No se detecta GPS: verifica la conexión."));
+    Blynk.virtualWrite(V3, "ERROR DE GPS");  // Widget de valor en V3 si no se detecta el GPS
   }
 }
 
@@ -54,7 +49,7 @@ void loop()
 {
   while (mygps.available() > 0)
   {
-    // sketch displays information every time a new sentence is correctly encoded.
+    // el boceto muestra información cada vez que una nueva sentencia se codifica correctamente.
     if (gps.encode(mygps.read()))
       displayInfo();
   }
@@ -62,27 +57,26 @@ void loop()
   timer.run();
 }
 
-
 void displayInfo()
 {
-  if (gps.location.isValid() )
+  if (gps.location.isValid())
   {
-    sats = gps.satellites.value();       //get number of satellites
-    latitude = (gps.location.lat());     //Storing the Lat. and Lon.
+    sats = gps.satellites.value();       // obtiene el número de satélites
+    latitude = (gps.location.lat());     // almacena la latitud y longitud
     longitude = (gps.location.lng());
-    velocity = gps.speed.kmph();         //get velocity
-    bearing = TinyGPSPlus::cardinal(gps.course.value());     // get the direction
+    velocity = gps.speed.kmph();         // obtiene la velocidad
+    bearing = TinyGPSPlus::cardinal(gps.course.value());     // obtiene la dirección
 
-    Serial.print("SATS:  ");
-    Serial.println(sats);  // float to x decimal places
-    Serial.print("LATITUDE:  ");
-    Serial.println(latitude, 6);  // float to x decimal places
-    Serial.print("LONGITUDE: ");
+    Serial.print("SATÉLITES:  ");
+    Serial.println(sats);  // muestra el número de satélites
+    Serial.print("LATITUD:  ");
+    Serial.println(latitude, 6);  // muestra la latitud con 6 decimales
+    Serial.print("LONGITUD: ");
     Serial.println(longitude, 6);
-    Serial.print("SPEED: ");
+    Serial.print("VELOCIDAD: ");
     Serial.print(velocity);
-    Serial.println("kmph");
-    Serial.print("DIRECTION: ");
+    Serial.println("km/h");
+    Serial.print("DIRECCIÓN: ");
     Serial.println(bearing);
 
     Blynk.virtualWrite(V1, String(latitude, 6));
@@ -92,5 +86,5 @@ void displayInfo()
     Blynk.virtualWrite(V5, bearing);
     myMap.location(move_index, latitude, longitude, "GPS_Location");
   }
- }
+}
 
