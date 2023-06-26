@@ -1,4 +1,6 @@
 # TRABAJO PRÁCTICO FINAL - GRUPO (5)
+![image](https://github.com/ISPC-TST-ARQUITECTURA-Y-CONECTIVIDAD/tareafinal-grupo-5/assets/108815579/ebaab621-8be8-48d9-83bd-b25fadb3433d)
+
 
 ## Integrantes del equipo:
 - [Alfredo Palacios](https://github.com/alfredop37)
